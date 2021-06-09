@@ -50,7 +50,6 @@
   },
   "icon": "assets/icon.png",
   "keywords": [
-    "prettier",
-    "config"
+    "prettier-config"
   ]
 }
