@@ -2,7 +2,7 @@
   "name": "prettier-config",
   "displayName": "PrettierConfig for VS Code",
   "description": "Generate .prettierrc.js & .prettierignore in the workspace",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "publisher": "whosydd",
   "engines": {
     "vscode": "^1.46.0"
@@ -26,7 +26,8 @@
       "explorer/context": [
         {
           "command": "prettier-config",
-          "when": "explorerResourceIsFolder"
+          "when": "explorerResourceIsFolder",
+          "group": "EditorConfig@2"
         }
       ]
     }
