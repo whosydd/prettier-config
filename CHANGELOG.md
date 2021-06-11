@@ -2,6 +2,10 @@
 
 All notable changes to the **PrettierConfig for VS Code** extension will be documented in this file.
 
+## [0.1.5]
+
+- 工作区中存在多个文件夹时，右键点击文件夹生成配置文件
+
 ## [0.1.4]
 
 - 重新调整了命令位置，如果已使用 [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
