@@ -2,6 +2,10 @@
 
 All notable changes to the **PrettierConfig for VS Code** extension will be documented in this file.
 
+## [0.1.6]
+
+- 优化代码
+
 ## [0.1.5]
 
 - 工作区中存在多个文件夹时，右键点击文件夹生成配置文件
