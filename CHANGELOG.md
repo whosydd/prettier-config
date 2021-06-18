@@ -2,6 +2,10 @@
 
 All notable changes to the **PrettierConfig for VS Code** extension will be documented in this file.
 
+## [0.1.7]
+
+- 更新 vscode 版本支持为 1.57.0 以上
+
 ## [0.1.6]
 
 - 优化代码
