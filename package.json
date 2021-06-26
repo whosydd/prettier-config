@@ -2,7 +2,7 @@
   "name": "prettier-config",
   "displayName": "PrettierConfig for VS Code",
   "description": "Generate .prettierrc.js & .prettierignore in the workspace",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "publisher": "whosydd",
   "engines": {
     "vscode": "^1.57.0"
@@ -53,5 +53,8 @@
   "icon": "assets/icon.png",
   "keywords": [
     "prettier-config"
+  ],
+  "extensionDependencies": [
+    "esbenp.prettier-vscode"
   ]
 }

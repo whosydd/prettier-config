@@ -40,6 +40,30 @@ function activate(context) {
       ) {
         fs.writeFileSync(`${workspace}/.prettierrc.js`, prettierrc);
         fs.writeFileSync(`${workspace}/.prettierignore`, ignore);
+        vscode.window
+          .showInformationMessage(
+            "Do you need to install dependencies?",
+            "Install",
+            "Already Done"
+          )
+          .then((answer) => {
+            if (answer === "Install") {
+              const terminal = vscode.window.createTerminal({
+                name: "prettier",
+                // hideFromUser: true,
+              });
+              vscode.commands.executeCommand(
+                "workbench.action.terminal.toggleTerminal"
+              );
+              try {
+                terminal.sendText(`npm i -D prettier`);
+              } catch (err) {
+                vscode.window.showErrorMessage(
+                  `请手动安装依赖！"npm i -D prettier"`
+                );
+              }
+            }
+          });
       } else {
         vscode.window.showErrorMessage(
           "An .prettierrc file already exists in this workspace."

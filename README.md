@@ -1,16 +1,16 @@
 # PrettierConfig for VS Code
 
-## Prerequisites
+## Dependencies
 
-注意：该插件需要安装 `prettier`
+- prettier
 
-This extension requires the following packages to be installed either locally or globally:
+## ExtensionDependencies
 
-- `prettier`
+- [prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 ## Usage
 
-使用资源管理器右键菜单中的 `Generate .prettierrc` 命令可以在工作区根目录生成 `.prettierrc.js` 和 `.prettierignore`
+![prettier](https://i.loli.net/2021/06/26/nSLBHgivGCmcAoQ.gif)
 
 A new `.prettierrc.js` file and a new `.prettierignore` file can be created via the Explorer sidebar's context menu by right-clicking in the folder where you'd like it to be and selecting `Generate .prettierrc`.
 

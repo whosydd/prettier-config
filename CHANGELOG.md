@@ -2,6 +2,11 @@
 
 All notable changes to the **PrettierConfig for VS Code** extension will be documented in this file.
 
+## [0.2.0]
+
+- 添加功能-生成配置文件后可选自动安装依赖包
+- 添加对 prettier 的扩展依赖
+
 ## [0.1.7]
 
 - 更新 vscode 版本支持为 1.57.0 以上
