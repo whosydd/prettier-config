@@ -2,6 +2,10 @@
 
 All notable changes to the **PrettierConfig for VS Code** extension will be documented in this file.
 
+## [0.2.1]
+
+- 优化体验
+
 ## [0.2.0]
 
 - 添加功能-生成配置文件后可选自动安装依赖包

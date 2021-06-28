@@ -52,9 +52,7 @@ function activate(context) {
                 name: "prettier",
                 // hideFromUser: true,
               });
-              vscode.commands.executeCommand(
-                "workbench.action.terminal.toggleTerminal"
-              );
+              terminal.show();
               try {
                 terminal.sendText(`npm i -D prettier`);
               } catch (err) {
@@ -65,7 +63,7 @@ function activate(context) {
             }
           });
       } else {
-        vscode.window.showErrorMessage(
+        vscode.window.showWarningMessage(
           "An .prettierrc file already exists in this workspace."
         );
       }
