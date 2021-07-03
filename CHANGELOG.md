@@ -2,6 +2,10 @@
 
 All notable changes to the **PrettierConfig for VS Code** extension will be documented in this file.
 
+## [0.2.2]
+
+- 更换图床
+
 ## [0.2.1]
 
 - 优化体验

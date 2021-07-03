@@ -10,7 +10,7 @@
 
 ## Usage
 
-![prettier](https://i.loli.net/2021/06/26/nSLBHgivGCmcAoQ.gif)
+![](https://raw.githubusercontent.com/whosydd/images-in-one/main/20210704000715.gif)
 
 A new `.prettierrc.js` file and a new `.prettierignore` file can be created via the Explorer sidebar's context menu by right-clicking in the folder where you'd like it to be and selecting `Generate .prettierrc`.
 
