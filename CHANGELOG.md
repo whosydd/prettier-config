@@ -2,6 +2,10 @@
 
 All notable changes to the **PrettierConfig for VS Code** extension will be documented in this file.
 
+## [0.2.3]
+
+- 修改 `.prettierignore`
+
 ## [0.2.2]
 
 - 更换图床

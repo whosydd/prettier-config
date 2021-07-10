@@ -16,10 +16,8 @@ const prettierrc = `module.exports = {
 const ignore = `**/*.min.js
 **/*.min.css
 
-.vscode/
 .idea/
 node_modules/
-test/
 dist/
 build/`
 

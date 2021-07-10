@@ -2,7 +2,7 @@
   "name": "prettier-config",
   "displayName": "PrettierConfig for VS Code",
   "description": "Generate .prettierrc.js & .prettierignore in the workspace",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "publisher": "whosydd",
   "engines": {
     "vscode": "^1.57.0"
@@ -51,7 +51,7 @@
     "type": "git",
     "url": "https://github.com/whosydd/prettier-config.git"
   },
-  "icon": "assets/icon.png",
+  "icon": "icon.png",
   "keywords": [
     "prettier-config"
   ],
