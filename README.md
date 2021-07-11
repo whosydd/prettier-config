@@ -20,7 +20,7 @@ A new `.prettierrc.js` file and a new `.prettierignore` file can be created via 
 
 可以选择在[gist](https://gist.github.com/)上添加`.prettierrc.js`以及`.prettierignore`，然后通过`wget`下载到本地
 
-**注意：**如果你不想生成 `.prettierignore` 文件，请不要设置` ignoreUrl`
+**注意**：如果你不想生成 `.prettierignore` 文件，请不要设置` ignoreUrl`
 
 **Warning:** If you do not want to generate a `.prettierignore` file, please do not set `ignoreUrl`
 
@@ -48,8 +48,6 @@ A new `.prettierrc.js` file and a new `.prettierignore` file can be created via 
 // settings.json:
 "prettier-config.tip": true //default
 ```
-
-
 
 ### default
 
