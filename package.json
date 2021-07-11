@@ -2,7 +2,7 @@
   "name": "prettier-config",
   "displayName": "PrettierConfig for VS Code",
   "description": "Generate .prettierrc.js & .prettierignore in the workspace",
-  "version": "0.2.3",
+  "version": "1.0.0",
   "publisher": "whosydd",
   "engines": {
     "vscode": "^1.57.0"
@@ -19,6 +19,7 @@
     "commands": [
       {
         "command": "prettier-config",
+        "category": "PrettierConfig",
         "title": "Generate .prettierrc"
       }
     ],
@@ -30,6 +31,27 @@
           "group": "EditorConfig@2"
         }
       ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "prettier-config",
+      "properties": {
+        "prettier-config.gist": {
+          "type": "object",
+          "required": [
+            "configUrl"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "description": "Sync configuration files from gist."
+        },
+        "prettier-config.tip": {
+          "type": "boolean",
+          "default": true,
+          "description": "Toggle whether to display the prompt to install prettier."
+        }
+      }
     }
   },
   "scripts": {
