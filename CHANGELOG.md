@@ -2,6 +2,10 @@
 
 All notable changes to the **PrettierConfig for VS Code** extension will be documented in this file.
 
+## [1.0.1]
+
+- fixed bugs & updated README
+
 ## [1.0.0]
 
 - 添加配置项

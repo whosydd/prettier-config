@@ -2,7 +2,7 @@
   "name": "prettier-config",
   "displayName": "PrettierConfig for VS Code",
   "description": "Generate .prettierrc.js & .prettierignore in the workspace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "whosydd",
   "engines": {
     "vscode": "^1.57.0"
@@ -19,7 +19,7 @@
     "commands": [
       {
         "command": "prettier-config",
-        "category": "PrettierConfig",
+        "category": "prettier-config",
         "title": "Generate .prettierrc"
       }
     ],

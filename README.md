@@ -12,21 +12,11 @@
 
 ![](https://raw.githubusercontent.com/whosydd/images-in-one/main/20210704000715.gif)
 
-A new `.prettierrc.js` file and a new `.prettierignore` file can be created via the Explorer sidebar's context menu by right-clicking in the folder where you'd like it to be and selecting `Generate .prettierrc`.
+![prettier 72](https://raw.githubusercontent.com/whosydd/images-in-one/main/20210712140259.png)
 
 ## Configuration
 
 ### Sync from gist
-
-可以选择在[gist](https://gist.github.com/)上添加`.prettierrc.js`以及`.prettierignore`，然后通过`wget`下载到本地
-
-**注意**：如果你不想生成 `.prettierignore` 文件，请不要设置` ignoreUrl`
-
-**Warning:** If you do not want to generate a `.prettierignore` file, please do not set `ignoreUrl`
-
-##### 获取下载地址：
-
-![Screenshot of PrettierConfig for VS Code](https://raw.githubusercontent.com/whosydd/images-in-one/main/20210711233331.png)
 
 ```json
 // settings.json:
@@ -38,16 +28,29 @@ A new `.prettierrc.js` file and a new `.prettierignore` file can be created via 
 },
 ```
 
+可以选择在[gist](https://gist.github.com/)上添加`.prettierrc.js`以及`.prettierignore`，然后通过`wget`下载到本地
+
+**注意**：如果你不想生成 `.prettierignore` 文件，请不要设置` ignoreUrl`
+
+##### 获取下载地址：
+
+![Screenshot of PrettierConfig for VS Code](https://raw.githubusercontent.com/whosydd/images-in-one/main/20210711233331.png)
+
 ### tip
-
-设置为`false`时，将不再提示`install prettier`
-
-![Capture](https://raw.githubusercontent.com/whosydd/images-in-one/main/20210711234457.PNG)
 
 ```json
 // settings.json:
 "prettier-config.tip": true //default
 ```
+
+```bash
+# You can choose to install prettier manually
+npm i -D prettier
+```
+
+设置为`false`时，将不再提示`install prettier`
+
+![Capture](https://raw.githubusercontent.com/whosydd/images-in-one/main/20210711234457.PNG)
 
 ### default
 

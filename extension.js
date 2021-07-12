@@ -12,7 +12,9 @@ async function activate(context) {
     const { configUrl, ignoreUrl } = res
 
     // 获取工作区路径
-    const workspace = folder.fsPath
+    let workspace
+    if (!folder) workspace = vscode.workspace.workspaceFolders[0].uri.fsPath
+    else workspace = folder.fsPath
 
     // 复制源文件
     function copyHandle() {
@@ -33,11 +35,7 @@ async function activate(context) {
               name: 'prettier',
             })
             terminal.show()
-            try {
-              terminal.sendText(`npm i -D prettier`)
-            } catch (err) {
-              vscode.window.showErrorMessage(`请手动安装依赖！"npm i -D prettier"`)
-            }
+            tip(terminal)
           }
         })
     }
@@ -57,14 +55,17 @@ async function activate(context) {
       vscode.window
         .showInformationMessage('Do you need to install prettier?', 'Install', 'Already Done')
         .then(answer => {
-          if (answer === 'Install') {
-            try {
-              terminal.sendText(`npm i -D prettier`)
-            } catch (err) {
-              vscode.window.showErrorMessage(`请手动安装依赖！"npm i -D prettier"`)
-            }
-          }
+          if (answer === 'Install') tip(terminal)
         })
+    }
+
+    // 安装依赖
+    function tip(terminal) {
+      try {
+        terminal.sendText(`npm i -D prettier`)
+      } catch (err) {
+        vscode.window.showErrorMessage(`请手动安装依赖！"npm i -D prettier"`)
+      }
     }
 
     // 判断工作区是否存在配置文件
