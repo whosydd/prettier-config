@@ -21,20 +21,16 @@
 ```json
 // settings.json:
 "prettier-config.gist": {
-    "configUrl": "https://gist.githubusercontent.com/whosydd/88cdd14ce8d329da28fcaa94a0b5a57d/raw/3e2f31feee0c4dfcf86043f5dc1806dbbc6fc1d8/.prettierrc.js",
+    "configID": "88cdd14ce8d329da28fcaa94a0b5a57d",
     // 如果不想生成 .prettierignore 文件，请不要设置 ignoreUrl
     // If you do not want to generate a .prettierignore file, please do not set 'ignoreUrl'
-    "ignoreUrl": "https://gist.githubusercontent.com/whosydd/55645a46fe427b45334d20b2df5aaf50/raw/2b761c9ebc00a81300b8253a1dffe12c26d4f5d1/.prettierignore"
+    "ignoreID": "55645a46fe427b45334d20b2df5aaf50"
 },
 ```
 
-可以选择在[gist](https://gist.github.com/)上添加`.prettierrc.js`以及`.prettierignore`，然后通过`wget`下载到本地
+可以选择在[gist](https://gist.github.com/)上添加`.prettierrc.js`以及`.prettierignore`，将`gist_id`添加到配置项中，扩展会通过`ajax`请求获取相应配置文件
 
-**注意**：如果你不想生成 `.prettierignore` 文件，请不要设置` ignoreUrl`
-
-##### 获取下载地址：
-
-![Screenshot of PrettierConfig for VS Code](https://raw.githubusercontent.com/whosydd/images-in-one/main/20210711233331.png)
+获取`gist_id`:![Capture](https://raw.githubusercontent.com/whosydd/images-in-one/main/20210719143245.PNG)
 
 ### tip
 
