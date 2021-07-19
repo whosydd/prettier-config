@@ -5,20 +5,38 @@ const axios = require('axios')
  * @param {vscode.ExtensionContext} context
  */
 async function activate(context) {
-  // 通知
-  vscode.window.showInformationMessage('PrettierConfig for VS Code 1.1.0 NEW!', {
-    modal: true,
-    detail: `由于改用ajax请求的方式获取gist上的配置文件，现在配置项需要gist_id，请参考扩展详情页！
-    
-    Please refer to the extension details page!`,
-  })
+  // update
+  function update() {
+    // 创建和显示webview
+    const panel = vscode.window.createWebviewPanel(
+      'PrettierConfig',
+      'PrettierConfig',
+      vscode.ViewColumn.One,
+      {}
+    )
+    // 设置HTML内容
+    panel.webview.html = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrettierConfig for VS Code 1.1.0 NEW!</title>
+  </head>
+  <body>
+    <h1>PrettierConfig for VS Code 1.1.0 NEW!</h1>
+    <br />
+    <h3>由于改用ajax请求的方式获取gist上的配置文件，现在配置项格式如下</h3>
+    <h3>"configID": "88cdd14ce8d329da28fcaa94a0b5a57d"</h3>
+    <img src="https://raw.githubusercontent.com/whosydd/images-in-one/main/20210719143245.PNG"/>
+  </body>
+</html>`
+  }
 
   let prettier = vscode.commands.registerCommand('prettier-config', async function (folder) {
     // 获取配置项
     const flag = await vscode.workspace.getConfiguration('prettier-config').get('tip')
     const res = await vscode.workspace.getConfiguration('prettier-config').get('gist')
     const { configID, ignoreID } = res
-
     // 获取工作区路径
     let workspace
     if (!folder) workspace = vscode.workspace.workspaceFolders[0].uri.fsPath
@@ -31,6 +49,10 @@ async function activate(context) {
     // handle
     function copyHandle() {
       // 判断配置项
+      if (res.configUrl) {
+        update()
+        return
+      }
       if (configID) {
         axios
           .get('https://api.github.com/gists/' + configID)

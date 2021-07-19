@@ -2,10 +2,14 @@
 
 All notable changes to the **PrettierConfig for VS Code** extension will be documented in this file.
 
+## [1.1.1]
+
+- 优化体验
+
 ## [1.1.0]
 
 - 优化体验
-- 由于使用`WGET`时，如果修改文件会导致地址发生改变，需要重新配置；所以该版本直接通过发送`GET`请求的方式获取配置文件，只需配置一次即可，可以随意编辑配置文件
+  - 由于使用`WGET`时，如果修改文件会导致地址发生改变，需要重新配置；所以该版本直接通过发送`GET`请求的方式获取配置文件，只需配置一次即可，可以随意编辑配置文件
 
 ## [1.0.1]
 
