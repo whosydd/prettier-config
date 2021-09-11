@@ -87,9 +87,9 @@ async function activate(context) {
     function tip() {
       if (!flag) return
       vscode.window
-        .showInformationMessage('Do you need to install prettier?', 'Install', 'Already Done')
+        .showInformationMessage('Do you need to install prettier?', 'npm install','yarn add', 'Already Done')
         .then(answer => {
-          if (answer === 'Install') {
+          if (answer === 'npm install') {
             const terminal = vscode.window.createTerminal({
               name: 'prettier',
             })
@@ -98,6 +98,17 @@ async function activate(context) {
               terminal.sendText(`npm i -D prettier`)
             } catch (err) {
               vscode.window.showErrorMessage(`请手动安装依赖！"npm i -D prettier"`)
+            }
+          }
+          if (answer === 'yarn add') {
+            const terminal = vscode.window.createTerminal({
+              name: 'prettier',
+            })
+            terminal.show()
+            try {
+              terminal.sendText(`yarn add -D prettier`)
+            } catch (err) {
+              vscode.window.showErrorMessage(`请手动安装依赖！"yarn add -D prettier"`)
             }
           }
         })

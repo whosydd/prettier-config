@@ -2,6 +2,10 @@
 
 All notable changes to the **PrettierConfig for VS Code** extension will be documented in this file.
 
+## [1.1.3]
+
+- 添加支持`yarn add -D prettier`
+
 ## [1.1.2]
 
 - updated README
