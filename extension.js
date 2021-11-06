@@ -40,7 +40,7 @@ async function activate(context) {
 
     // 获取工作区路径
     let workspace
-    if (Object.keys(folder).length > 0) {
+    if (folder && Object.keys(folder).length > 0) {
       // 使用菜单
       workspace = folder.fsPath
     } else {

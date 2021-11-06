@@ -2,6 +2,10 @@
 
 All notable changes to the **PrettierConfig for VS Code** extension will be documented in this file.
 
+## [1.2.1]
+
+- 修复 bug：使用命令时报错
+
 ## [1.2.0]
 
 - 添加功能：工作区如果存在多个文件夹，提示可选文件夹
