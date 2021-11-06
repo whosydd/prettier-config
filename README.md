@@ -52,7 +52,7 @@ npm i -D prettier
 
 ### default
 
-默认情况下，将直接从扩展的`src`目录复制以下配置文件
+默认情况下，将直接从扩展的`template`目录复制以下配置文件
 
 #### .prettierrc.js
 
