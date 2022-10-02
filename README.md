@@ -16,14 +16,26 @@
 
 ## Configuration
 
+### 1.3.0 new！
+
+You will see this when you choice `Install`
+
+![image-20221003011635010](https://raw.githubusercontent.com/whosydd/images-in-one/main/images/202210030116547.png)
+
+Or you can config this in your `settings.json`
+
+```json
+"prettier-config.tool": "npm"
+```
+
 ### Sync from gist
 
 ```json
 // settings.json:
 "prettier-config.gist": {
     "configID": "88cdd14ce8d329da28fcaa94a0b5a57d",
-    // 如果不想生成 .prettierignore 文件，请不要设置 ignoreUrl
-    // If you do not want to generate a .prettierignore file, please do not set 'ignoreUrl'
+    // 如果不想生成 .prettierignore 文件，请不要设置 ignoreID
+    // If you do not want to generate a .prettierignore file, please do not set 'ignoreID'
     "ignoreID": "55645a46fe427b45334d20b2df5aaf50"
 },
 ```

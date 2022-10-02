@@ -2,6 +2,11 @@
 
 All notable changes to the **PrettierConfig for VS Code** extension will be documented in this file.
 
+## [1.3.0]
+
+- add pnpm
+- 添加配置项：现在需要在`settings`中配置默认包管理工具（首次使用会弹出选项框）
+
 ## [1.2.1]
 
 - 修复 bug：使用命令时报错
