@@ -38,6 +38,8 @@ async function activate(context) {
     const res = await vscode.workspace.getConfiguration('prettier-config').get('gist')
     const { configID, ignoreID } = res
 
+    let tool = await vscode.workspace.getConfiguration('prettier-config').get('tool')
+
     // 获取工作区路径
     let workspace
     if (folder && Object.keys(folder).length > 0) {
@@ -105,34 +107,20 @@ async function activate(context) {
     function tip() {
       if (!flag) return
       vscode.window
-        .showInformationMessage(
-          'Do you need to install prettier?',
-          'npm install',
-          'yarn add',
-          'Already Done'
-        )
+        .showInformationMessage('Do you need to install prettier?', 'Install', 'Already Done')
         .then(answer => {
-          if (answer === 'npm install') {
-            const terminal = vscode.window.createTerminal({
-              name: 'prettier',
-            })
-            terminal.show()
-            try {
-              terminal.sendText(`npm i -D prettier`)
-            } catch (err) {
-              vscode.window.showErrorMessage(`请手动安装依赖！"npm i -D prettier"`)
+          if (answer === 'Install') {
+            // 确定参数
+            if (tool === '' || tool === undefined) {
+              tipConfigFormat()
+              return
             }
-          }
-          if (answer === 'yarn add') {
-            const terminal = vscode.window.createTerminal({
-              name: 'prettier',
-            })
-            terminal.show()
-            try {
-              terminal.sendText(`yarn add -D prettier`)
-            } catch (err) {
-              vscode.window.showErrorMessage(`请手动安装依赖！"yarn add -D prettier"`)
-            }
+            let param
+            tool === 'npm' ? (param = 'i') : (param = 'add')
+            let command = `${tool} ${param} -D prettier`
+
+            // 安装依赖
+            exec(command)
           }
         })
     }
@@ -165,4 +153,49 @@ function deactivate() {}
 module.exports = {
   activate,
   deactivate,
+}
+
+// new config tip
+const tipConfigFormat = () => {
+  vscode.window
+    .showInformationMessage(
+      'PrettierConfig for VS Code 1.3.0 NEW!',
+      {
+        modal: true,
+        detail: `Now you need to decide which one do you want.
+        It will be added to your settings.
+        
+        For details, please refer to the extension page.`,
+      },
+      'npm',
+      'yarn',
+      'pnpm'
+    )
+    .then(tool => {
+      if (tool === undefined) {
+        return
+      }
+      vscode.workspace.getConfiguration('prettier-config').update('tool', tool, true)
+
+      let param
+      tool === 'npm' ? (param = 'i') : (param = 'add')
+
+      let command = `${tool} ${param} -D prettier`
+
+      // 安装依赖
+      exec(command)
+    })
+    .catch(err => vscode.window.showErrorMessage(err))
+}
+
+function exec(command) {
+  try {
+    const terminal = vscode.window.createTerminal({
+      name: 'prettier',
+    })
+    terminal.show()
+    terminal.sendText(command)
+  } catch (err) {
+    vscode.window.showErrorMessage(`请手动安装依赖！prettier`)
+  }
 }
