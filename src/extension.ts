@@ -1,7 +1,7 @@
-import * as download from 'download'
 import * as fs from 'fs'
 import * as vscode from 'vscode'
 import showWhatsNew, { Version } from './showWhatsNew'
+import download = require('download')
 
 interface Gist {
   configRaw: string

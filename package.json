@@ -82,7 +82,7 @@
     "vscode:package": "pnpm vsce package --no-dependencies",
     "vscode:publish": "pnpm vsce publish --no-dependencies",
     "vscode:prepublish": "npm run esbuild-base -- --minify",
-    "esbuild-base": "rm -rf ./out && mkdir out && cp -r src/template out/template && esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "esbuild-base": "rm -rf out && mkdir out && cp -r src/template out/template && esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --external:electron --format=cjs --platform=node",
     "esbuild": "npm run esbuild-base -- --sourcemap",
     "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
     "pretest": "pnpm run compile && pnpm run lint",
