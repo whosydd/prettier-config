@@ -7,6 +7,10 @@ interface ShowWhatsNewOptions {
   version: Version // Version.minor
 }
 
+interface ExtensionInfo {
+  version: string
+}
+
 export enum Version {
   major,
   minor,
@@ -16,7 +20,7 @@ export enum Version {
 export default async (context: vscode.ExtensionContext, options: ShowWhatsNewOptions) => {
   const { extensionId, title, detail, version } = options
   // 获取版本信息
-  const preVersion = context.globalState.get<string>(extensionId) // undefined
+  const preVersion = context.globalState.get<ExtensionInfo>(extensionId)?.version // undefined
   const curVersion = vscode.extensions.getExtension(extensionId)!.packageJSON.version // 0.2.0
 
   if (preVersion === undefined || isUpdated(preVersion, curVersion, version)) {
@@ -32,7 +36,9 @@ export default async (context: vscode.ExtensionContext, options: ShowWhatsNewOpt
       .then(async value => {
         // 确认后保存当前版本
         if (value === 'Confirm') {
-          await context.globalState.update(extensionId, curVersion)
+          await context.globalState.update(extensionId, {
+            version: curVersion,
+          })
         }
       })
   }
