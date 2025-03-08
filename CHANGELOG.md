@@ -2,11 +2,14 @@
 
 All notable changes to the **PrettierConfig for VS Code** extension will be documented in this file.
 
+## [1.5.1]
+
+- 更换图标
+
 ## [1.5.0]
 
 - 使用 typescript 重新构建
 - 添加配置项：可以选择在每次安装 `prettier` 时选择包管理工具
-- 更换图标
 
 ## [1.4.2]
 
