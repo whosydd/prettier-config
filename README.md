@@ -73,3 +73,7 @@ dist/
 build/
 ```
 
+## Thanks
+
+<a href="https://www.flaticon.com/free-icons/alphabet" title="alphabet icons">Alphabet icons created by Freepik - Flaticon</a>
+
