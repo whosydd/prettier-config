@@ -2,7 +2,7 @@
   "name": "prettier-config",
   "displayName": "PrettierConfig for VS Code",
   "description": "Generate .prettierrc & .prettierignore in the workspace",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -81,10 +81,10 @@
   "scripts": {
     "vscode:package": "pnpm vsce package --no-dependencies",
     "vscode:publish": "pnpm vsce publish --no-dependencies",
-    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "vscode:prepublish": "pnpm run esbuild-base -- --minify",
     "esbuild-base": "rm -rf out && mkdir out && cp -r src/template out/template && esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --external:electron --format=cjs --platform=node",
-    "esbuild": "npm run esbuild-base -- --sourcemap",
-    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+    "esbuild": "pnpm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "pnpm run esbuild-base -- --sourcemap --watch",
     "pretest": "pnpm run compile && pnpm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
