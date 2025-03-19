@@ -11,7 +11,7 @@ interface Gist {
 export function activate(context: vscode.ExtensionContext) {
   showWhatsNew(context, {
     extensionId: 'whosydd.prettier-config',
-    title: 'PrettierConfig for VS Code 1.5.0 New!',
+    title: 'PrettierConfig for VS Code 1.6.0 New!',
     detail: `New configration: "prettier-config.tool": "manually"\nChoose package manager tool when install prettier every time.`,
     version: Version.minor,
   })
