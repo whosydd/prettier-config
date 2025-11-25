@@ -2,6 +2,11 @@
 
 All notable changes to the **PrettierConfig for VS Code** extension will be documented in this file.
 
+## [1.6.1]
+
+- 修复：从 Gist 下载文件时，自动提取 URL 中的实际文件名
+- 增强：Gist 配置支持智能提示（IntelliSense）
+
 ## [1.6.0]
 
 - 更换图标

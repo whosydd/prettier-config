@@ -2,7 +2,7 @@
   "name": "prettier-config",
   "displayName": "PrettierConfig for VS Code",
   "description": "Generate .prettierrc & .prettierignore in the workspace",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -45,13 +45,21 @@
       "properties": {
         "prettier-config.gist": {
           "type": "object",
+          "default": {},
+          "properties": {
+            "configRaw": {
+              "type": "string",
+              "description": "Raw URL of the prettier config file from gist (e.g., https://gist.githubusercontent.com/.../raw/.../.prettierrc)"
+            },
+            "ignoreRaw": {
+              "type": "string",
+              "description": "Raw URL of the prettier ignore file from gist (optional, e.g., https://gist.githubusercontent.com/.../raw/.../.prettierignore)"
+            }
+          },
           "required": [
             "configRaw"
           ],
-          "items": {
-            "type": "string"
-          },
-          "description": "Sync configuration files from gist. Use raw URL."
+          "description": "Sync configuration files from gist using raw URLs. The file names will be extracted from the URLs."
         },
         "prettier-config.ignore": {
           "type": "boolean",

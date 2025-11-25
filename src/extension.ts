@@ -9,10 +9,13 @@ interface Gist {
 }
 
 export function activate(context: vscode.ExtensionContext) {
+  // TEST: 清除保存的版本信息，每次都显示通知
+  // context.globalState.update('whosydd.prettier-config', undefined)
+
   showWhatsNew(context, {
     extensionId: 'whosydd.prettier-config',
-    title: 'PrettierConfig for VS Code 1.6.0 New!',
-    detail: `New configration: "prettier-config.tool": "manually"\nChoose package manager tool when install prettier every time.`,
+    title: 'PrettierConfig for VS Code 1.6.1 New!',
+    detail: `- Auto-extract filename from Gist URL\n- Enhanced Gist configuration with IntelliSense support`,
     version: Version.minor,
   })
 
@@ -64,9 +67,15 @@ export function activate(context: vscode.ExtensionContext) {
             { location: vscode.ProgressLocation.Notification },
             async progress => {
               progress.report({ message: 'Downloading ...' })
-              fs.writeFileSync(`${workspace}/.prettierrc`, await download(gist.configRaw))
+              // 从 URL 中提取文件名
+              const configFileName = gist.configRaw.split('/').pop()?.split('?')[0] || '.prettierrc'
+              const configContent = await download(gist.configRaw)
+              fs.writeFileSync(`${workspace}/${configFileName}`, configContent.toString())
               if (gist.ignoreRaw) {
-                fs.writeFileSync(`${workspace}/.prettierignore`, await download(gist.ignoreRaw))
+                const ignoreFileName =
+                  gist.ignoreRaw.split('/').pop()?.split('?')[0] || '.prettierignore'
+                const ignoreContent = await download(gist.ignoreRaw)
+                fs.writeFileSync(`${workspace}/${ignoreFileName}`, ignoreContent.toString())
               }
             }
           )
@@ -97,7 +106,7 @@ export function activate(context: vscode.ExtensionContext) {
                   command = 'yarn add -D prettier'
                   break
                 case 'pnpm':
-                  command = 'pnpm i -D prettier'
+                  command = 'pnpm add -D prettier'
                   break
                 default:
                   return
@@ -121,7 +130,7 @@ export function activate(context: vscode.ExtensionContext) {
                     command = 'yarn add -D prettier'
                     break
                   case 'pnpm':
-                    command = 'pnpm i -D prettier'
+                    command = 'pnpm add -D prettier'
                     break
                   default:
                     return
